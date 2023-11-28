@@ -10,7 +10,7 @@ int main() {
     int numElements = 0;
     int opcio;
 
-    do {
+    while (true) {
         cout << "1. Entrar objecte del joc" << endl;
         cout << "2. Eliminar objecte del joc" << endl;
         cout << "3. Entrar una quantitat determinada d'objectes" << endl;
@@ -29,7 +29,7 @@ int main() {
                 cout << "Objecte afegit a l'inventari." << endl;
             }
             else {
-                cout << "L'inventari esta ple. No es pot afegir mes objectes." << endl;
+                cout << "L'inventari està ple. No es pot afegir més objectes." << endl;
             }
             break;
         }
@@ -46,11 +46,9 @@ int main() {
                         }
                         numElements--;
                         cout << "Objecte eliminat de l'inventari." << endl;
-                        return 0;
+                        break;
                     }
                 }
-
-                cout << "No s'ha trobat l'objecte a l'inventari." << endl;
             }
             else {
                 cout << "L'inventari està buit. No es pot eliminar cap objecte." << endl;
@@ -70,7 +68,7 @@ int main() {
                     cout << "Objecte afegit a l'inventari." << endl;
                 }
                 else {
-                    cout << "L'inventari esta ple. No es pot afegir mes objectes." << endl;
+                    cout << "L'inventari està ple. No es pot afegir més objectes." << endl;
                     break;
                 }
             }
@@ -81,14 +79,15 @@ int main() {
             cout << "L'inventari s'ha buidat." << endl;
             break;
         }
-        case 0:
+        case 0: {
             cout << "Adeu! Fi del programa." << endl;
-            break;
-        default:
-            cout << "Opcio no va0   lida. Torna a intentar-ho." << endl;
+            return 0;
         }
-
-    } while (opcio != 0);
+        default: {
+            cout << "Opcio no vàlida. Torna a intentar-ho." << endl;
+        }
+        }
+    }
 
     return 0;
 }
